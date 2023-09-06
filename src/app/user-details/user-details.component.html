@@ -1,0 +1,15 @@
+<div >
+    <mat-card  class="user-card" *ngIf="user">
+
+    <img [src]="user.data.avatar" alt="User Avatar" class="user-avatar" />
+    
+    <div class="user-details">
+      <h2>{{ user.data.first_name }} {{ user.data.last_name }}</h2>
+      <p>ID: {{ user.data.id }}</p>
+    </div>
+    </mat-card>
+ 
+  </div>
+  
+  <a routerLink="/user-list">Back to User List</a>
+  

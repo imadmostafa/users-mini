@@ -1,0 +1,34 @@
+
+<!-- [(ngModel)]="searchTerm" (input)="applyFilter()" -->
+<mat-toolbar color="primary">
+    <span>User List</span>
+    <mat-form-field class="search-field">
+      <input matInput placeholder="Search by ID" 
+       [(ngModel)]="searchTerm" 
+       (input)="applyFilter()"
+       (keydown.enter)="applyFilter()"
+       />
+    </mat-form-field>
+  </mat-toolbar>
+
+  <div *ngIf="isLoading" class="loading-overlay">
+    <div class="loading-spinner"></div>
+  </div>
+  <div class="user-list-container">
+    
+    <mat-card *ngFor="let user of displayedUsers" class="user-card" (click)="goToUserDetails(user.id)">
+      <img [src]="user.avatar" alt="User Avatar" class="user-avatar" />
+      <div class="user-details">
+        <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+        <p>ID: {{ user.id }}</p>
+      </div>
+    </mat-card>
+  </div>
+  
+  <!-- Add pagination controls -->
+<mat-paginator
+[pageSize]="7"
+[pageSizeOptions]="[7]"
+[length]="100"
+(page)="onPageChange($event)"
+></mat-paginator>

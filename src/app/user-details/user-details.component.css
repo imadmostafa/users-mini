@@ -1,0 +1,24 @@
+.user-list-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .user-card {
+    margin: 16px;
+    cursor: pointer;
+  }
+  
+  .user-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .user-details {
+    text-align: center;
+  }
+  
+  .search-field {
+    margin-left: auto;
+  }
+  
